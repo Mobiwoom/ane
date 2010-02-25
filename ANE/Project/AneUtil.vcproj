@@ -156,6 +156,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Include\AneUtil\LockFreeSelfStack.h"
+				>
+			</File>
+			<File
 				RelativePath="..\Include\ANEUtil\LockFreeStack.h"
 				>
 			</File>
