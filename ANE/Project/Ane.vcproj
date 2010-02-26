@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="$(ProjectDir)..\Include\Ane"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\Include\Ane&quot;;&quot;$(SolutionDir)..\Library\ALD\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,6 +61,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)..\Library\ALD\lib&quot;"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -155,7 +156,7 @@
 				Name="Source"
 				>
 				<File
-					RelativePath="..\Source\Ane\List.cpp"
+					RelativePath="..\Source\Ane\LockedList.cpp"
 					>
 				</File>
 				<File
@@ -167,7 +168,7 @@
 				Name="Header"
 				>
 				<File
-					RelativePath="..\Include\Ane\List.h"
+					RelativePath="..\Include\Ane\LockedList.h"
 					>
 				</File>
 				<File
