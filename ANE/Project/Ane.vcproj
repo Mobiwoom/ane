@@ -41,6 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="$(ProjectDir)..\Include\Ane"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -144,12 +145,52 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Header"
+			Name="Ane"
 			>
 		</Filter>
 		<Filter
-			Name="Source"
+			Name="Foundation"
 			>
+			<Filter
+				Name="Source"
+				>
+				<File
+					RelativePath="..\Source\Ane\List.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Source\Ane\Node.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Header"
+				>
+				<File
+					RelativePath="..\Include\Ane\List.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\LockFreeQueue.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\LockFreeSelfStack.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\LockFreeStack.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\Node.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\SmartPtr.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath="..\Include\Ane.h"

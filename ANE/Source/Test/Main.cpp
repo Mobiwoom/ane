@@ -1,4 +1,4 @@
-#include "AneUtil.h"
+#include "Ane.h"
 
 class Test
 {
@@ -9,7 +9,7 @@ public:
 void main()
 {
 	AneUtil::LockFreeQueue<Test>			queTest;
-	Test* pTest = new Test;
+//	Test* pTest = new Test;
 	Test temp ;
 	queTest.Push(temp);
 
