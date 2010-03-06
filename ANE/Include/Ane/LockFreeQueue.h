@@ -1,4 +1,5 @@
 #pragma once
+#include "CommonHeader.h"
 #include "LockFreeSelfStack.h"
 
 namespace Ane
@@ -117,7 +118,7 @@ Type LockFreeQueue<Type>::Pop()
 template <typename Type>
 void LockFreeQueue<Type>::Clear()
 {
-	while(1)
+	while(TRUE)
 	{		
 		Node* pHead;
 		Node* pNext;

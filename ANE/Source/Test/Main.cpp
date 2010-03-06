@@ -1,16 +1,25 @@
 #include "Ane.h"
 #include "vld.h"
+#include "boost/shared_ptr.hpp"
+#include <list>
 
-class Test
+class TClass
+	: public Ane::Singleton<TClass>
 {
 public:
-	int m_Num;
+	TClass()
+	{
+
+	}
+	virtual ~TClass(){}
+public:
+
+	int NumA;
+	int NumB;
 };
 
 void main()
 {
-	Ane::LockFreeQueue<Test*>			queTest;
-	Test* pTest = new Test;
-	queTest.Push(pTest);
+	TClass* pTest = TClass::Instance();
 
 }

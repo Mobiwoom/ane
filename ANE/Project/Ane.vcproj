@@ -152,6 +152,10 @@
 		<Filter
 			Name="Foundation"
 			>
+			<File
+				RelativePath="..\Include\Ane\Foundation.h"
+				>
+			</File>
 			<Filter
 				Name="Source"
 				>
@@ -163,12 +167,24 @@
 					RelativePath="..\Source\Ane\Node.cpp"
 					>
 				</File>
+				<File
+					RelativePath="..\Source\Ane\SingletonManager.cpp"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Header"
 				>
 				<File
+					RelativePath="..\Include\Ane\CriticalSection.h"
+					>
+				</File>
+				<File
 					RelativePath="..\Include\Ane\LockedList.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\LockFreeCounter.h"
 					>
 				</File>
 				<File
@@ -180,17 +196,65 @@
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\LockFreeStack.h"
+					RelativePath="..\Include\Ane\Node.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\Node.h"
+					RelativePath="..\Include\Ane\Singleton.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\SingletonManager.h"
 					>
 				</File>
 				<File
 					RelativePath="..\Include\Ane\SmartPtr.h"
 					>
 				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Common"
+			>
+			<Filter
+				Name="Header"
+				>
+				<File
+					RelativePath="..\Include\Ane\CommonHeader.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\Definitions.h"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="StlCustomize"
+			>
+			<Filter
+				Name="Header"
+				>
+				<File
+					RelativePath="..\Include\Ane\ane_list.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\ane_string.h"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Memory"
+			>
+			<Filter
+				Name="Header"
+				>
+			</Filter>
+			<Filter
+				Name="Source"
+				>
 			</Filter>
 		</Filter>
 		<File

@@ -1,6 +1,5 @@
 #pragma once
-#include <Windows.h>
-#include <intrin.h>
+#include "CommonHeader.h"
 
 #pragma intrinsic(_InterlockedCompareExchange64)
 

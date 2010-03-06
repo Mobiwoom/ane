@@ -1,22 +1,23 @@
 #pragma once
+#include "CommonHeader.h"
 
 namespace Ane
 {
 class LockedList;
 class Node
 {
+	friend class LockedList;
 public:
 	Node();
-	virtual ~Node();
+	~Node();
 
-	void										ReSet();
+protected:
 	void										PopThis();
 
-	//	void									SetList(List* pList)			{m_CurrentList = pList;}
-	//	List*									GetList()						{return m_CurrentList;}
+private:
+	void										ReSet();
 
 private:
-	friend class LockedList;
 	LockedList*									m_CurrentList;
 	Node*										m_pPrev;
 	Node*										m_pNext;

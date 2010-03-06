@@ -1,4 +1,5 @@
 #pragma once
+#include "CommonHeader.h"
 
 namespace Ane
 {
@@ -7,7 +8,7 @@ class LockedList
 {
 public:
 	LockedList();
-	virtual ~LockedList();
+	~LockedList();
 
 public:
 	void										PushBack(Node* pNode);
