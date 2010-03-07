@@ -1,17 +1,8 @@
 #include "SingletonManager.h"
+#include "ISingleton.h"
 
 namespace Ane
 {
-ISingleton::ISingleton( ReleaseLevel Level) 
-:m_Level(Level)
-{
-
-}
-
-ISingleton::~ISingleton()
-{
-
-}
 
 SingletonManager::SingletonManager()
 {
@@ -42,7 +33,15 @@ void SingletonManager::Attach( ISingleton* pSingleton )
 void SingletonManager::Clear()
 {
 	ISingleton* pSingleton = NULL;
-	while(NULL == this->m_queLevel_1.Pop())
+	while(NULL != (pSingleton = this->m_queLevel_1.Pop()))
+	{
+		SAFE_DELETE(pSingleton);
+	}
+	while(NULL != (pSingleton = this->m_queLevel_2.Pop()))
+	{
+		SAFE_DELETE(pSingleton);
+	}
+	while(NULL != (pSingleton = this->m_queLevel_3.Pop()))
 	{
 		SAFE_DELETE(pSingleton);
 	}

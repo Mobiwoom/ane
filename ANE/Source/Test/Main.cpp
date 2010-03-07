@@ -8,6 +8,7 @@ class TClass
 {
 public:
 	TClass()
+		:Ane::Singleton<TClass>(Ane::RELEASE_LEVEL_2)
 	{
 
 	}
@@ -21,5 +22,8 @@ public:
 void main()
 {
 	TClass* pTest = TClass::Instance();
+
+
+
 
 }
