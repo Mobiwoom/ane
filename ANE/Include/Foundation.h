@@ -1,10 +1,10 @@
 #pragma once
 
-#include "CriticalSection.h"
-#include "LockedList.h"
-#include "LockFreeCounter.h"
-#include "LockFreeQueue.h"
-#include "LockFreeSelfStack.h"
-#include "Node.h"
-#include "Singleton.h"
-#include "SmartPtr.h"
+#include "Foundation/CriticalSection.h"
+#include "Foundation/LockedList.h"
+#include "Foundation/LockFreeCounter.h"
+#include "Foundation/LockFreeQueue.h"
+#include "Foundation/LockFreeSelfStack.h"
+#include "Foundation/Node.h"
+#include "Foundation/Singleton.h"
+#include "Foundation/SmartPtr.h"
