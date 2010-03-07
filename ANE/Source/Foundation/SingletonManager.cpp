@@ -1,5 +1,5 @@
-#include "SingletonManager.h"
-#include "ISingleton.h"
+#include "Foundation/SingletonManager.h"
+#include "Foundation/ISingleton.h"
 
 namespace Ane
 {

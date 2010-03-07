@@ -1,6 +1,6 @@
 #pragma once
-#include "CommonHeader.h"
-#include "ISingleton.h"
+#include "Common/CommonHeader.h"
+#include "Foundation/ISingleton.h"
 
 namespace Ane
 {

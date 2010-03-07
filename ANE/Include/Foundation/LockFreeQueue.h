@@ -1,6 +1,6 @@
 #pragma once
-#include "CommonHeader.h"
-#include "LockFreeSelfStack.h"
+#include "Common/CommonHeader.h"
+#include "Foundation/LockFreeSelfStack.h"
 
 namespace Ane
 {

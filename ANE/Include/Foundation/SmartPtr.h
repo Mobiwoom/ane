@@ -1,6 +1,6 @@
 #pragma once
-#include "CommonHeader.h"
-#include "LockFreeCounter.h"
+#include "Common/CommonHeader.h"
+#include "Foundation/LockFreeCounter.h"
 
 // 이걸 만들어야 되나 말아야 되나...;ㅁ;
 

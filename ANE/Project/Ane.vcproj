@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\Include\Ane&quot;;&quot;$(SolutionDir)..\Library\ALD\include&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)..\Include&quot;;&quot;$(SolutionDir)..\Library\ALD\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,6 +61,8 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
+				LinkLibraryDependencies="true"
+				OutputFile="$(OutDir)\$(ProjectName)_d.lib"
 				AdditionalLibraryDirectories="&quot;$(SolutionDir)..\Library\ALD\lib&quot;"
 			/>
 			<Tool
@@ -152,27 +154,23 @@
 		<Filter
 			Name="Foundation"
 			>
-			<File
-				RelativePath="..\Include\Ane\Foundation.h"
-				>
-			</File>
 			<Filter
 				Name="Source"
 				>
 				<File
-					RelativePath="..\Source\Ane\ISingleton.cpp"
+					RelativePath="..\Source\Foundation\ISingleton.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Source\Ane\LockedList.cpp"
+					RelativePath="..\Source\Foundation\LockedList.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Source\Ane\Node.cpp"
+					RelativePath="..\Source\Foundation\Node.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Source\Ane\SingletonManager.cpp"
+					RelativePath="..\Source\Foundation\SingletonManager.cpp"
 					>
 				</File>
 			</Filter>
@@ -180,43 +178,55 @@
 				Name="Header"
 				>
 				<File
-					RelativePath="..\Include\Ane\CriticalSection.h"
+					RelativePath="..\Include\Foundation\CriticalSection.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\ISingleton.h"
+					RelativePath="..\Include\Foundation\ISingleton.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\LockedList.h"
+					RelativePath="..\Include\Foundation\LockedList.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\LockFreeCounter.h"
+					RelativePath="..\Include\Foundation\LockFreeCounter.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\LockFreeQueue.h"
+					RelativePath="..\Include\Foundation\LockFreeQueue.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\LockFreeSelfStack.h"
+					RelativePath="..\Include\Foundation\LockFreeSelfStack.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\Node.h"
+					RelativePath="..\Include\Foundation\LockFreeStack.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\Singleton.h"
+					RelativePath="..\Include\Foundation\Node.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\SingletonManager.h"
+					RelativePath="..\Include\Foundation\Ptr.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\SmartPtr.h"
+					RelativePath="..\Include\Foundation\RefCounter.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Foundation\Singleton.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Foundation\SingletonManager.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Foundation\SmartPtr.h"
 					>
 				</File>
 			</Filter>
@@ -228,11 +238,11 @@
 				Name="Header"
 				>
 				<File
-					RelativePath="..\Include\Ane\CommonHeader.h"
+					RelativePath="..\Include\Common\CommonHeader.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\Definitions.h"
+					RelativePath="..\Include\Common\Definitions.h"
 					>
 				</File>
 			</Filter>
@@ -244,27 +254,27 @@
 				Name="Header"
 				>
 				<File
-					RelativePath="..\Include\Ane\ane_list.h"
+					RelativePath="..\Include\StlCustomize\ane_list.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\ane_map.h"
+					RelativePath="..\Include\StlCustomize\ane_map.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\ane_queue.h"
+					RelativePath="..\Include\StlCustomize\ane_queue.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\ane_stack.h"
+					RelativePath="..\Include\StlCustomize\ane_stack.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\ane_string.h"
+					RelativePath="..\Include\StlCustomize\ane_string.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Ane\ane_vector.h"
+					RelativePath="..\Include\StlCustomize\ane_vector.h"
 					>
 				</File>
 			</Filter>
@@ -275,10 +285,18 @@
 			<Filter
 				Name="Header"
 				>
+				<File
+					RelativePath="..\Include\Memory\Memory.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Source"
 				>
+				<File
+					RelativePath="..\Source\Memory\Memory.cpp"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<File

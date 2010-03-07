@@ -1,6 +1,6 @@
 #pragma once
-#include "CommonHeader.h"
-#include "LockFreeQueue.h"
+#include "Common/CommonHeader.h"
+#include "Foundation/LockFreeQueue.h"
 
 namespace Ane
 {

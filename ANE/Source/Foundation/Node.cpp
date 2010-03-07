@@ -1,5 +1,5 @@
-#include "Node.h"
-#include "LockedList.h"
+#include "Foundation/Node.h"
+#include "Foundation/LockedList.h"
 
 namespace Ane
 {
