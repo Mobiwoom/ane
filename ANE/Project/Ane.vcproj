@@ -250,6 +250,10 @@
 		<Filter
 			Name="StlCustomize"
 			>
+			<File
+				RelativePath="..\Include\StlCustomize.h"
+				>
+			</File>
 			<Filter
 				Name="Header"
 				>

@@ -20,6 +20,10 @@ public:
 
 void main()
 {
+	Ane::list<int*> m_list;
 
+	int* pA = new int;
 
+	m_list.push_back(pA);
+	
 }
