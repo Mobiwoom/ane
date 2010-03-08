@@ -39,7 +39,7 @@ char* Memory::CurrentMemory()
 
 char* Memory::GetBeginMemory()
 {
-	return m_pMemory[0];
+	return &m_pMemory[0];
 }
 
 int Memory::RemainMemorySize()

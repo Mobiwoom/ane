@@ -1,7 +1,6 @@
 #include "Ane.h"
 #include "vld.h"
 #include "boost/shared_ptr.hpp"
-#include <list>
 
 class TClass
 	: public Ane::Singleton<TClass>
@@ -21,9 +20,6 @@ public:
 
 void main()
 {
-	TClass* pTest = TClass::Instance();
-
-
 
 
 }
