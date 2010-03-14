@@ -47,7 +47,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
-				WarningLevel="3"
+				WarningLevel="4"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -150,39 +150,67 @@
 		<Filter
 			Name="Ane"
 			>
+			<Filter
+				Name="AneTcp"
+				>
+			</Filter>
+			<Filter
+				Name="Ane"
+				>
+				<File
+					RelativePath="..\Source\Ane\Ane\Buffer.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\Ane\Buffer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Source\Ane\Ane\Iocp.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\Ane\Iocp.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="AneUdp"
+				>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Foundation"
 			>
 			<Filter
-				Name="Source"
+				Name="Singleton"
 				>
 				<File
 					RelativePath="..\Source\Foundation\ISingleton.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Source\Foundation\LockedList.cpp"
+					RelativePath="..\Include\Foundation\ISingleton.h"
 					>
 				</File>
 				<File
-					RelativePath="..\Source\Foundation\Node.cpp"
+					RelativePath="..\Include\Foundation\Singleton.h"
 					>
 				</File>
 				<File
 					RelativePath="..\Source\Foundation\SingletonManager.cpp"
 					>
 				</File>
-			</Filter>
-			<Filter
-				Name="Header"
-				>
 				<File
-					RelativePath="..\Include\Foundation\CriticalSection.h"
+					RelativePath="..\Include\Foundation\SingletonManager.h"
 					>
 				</File>
+			</Filter>
+			<Filter
+				Name="DataStructures"
+				>
 				<File
-					RelativePath="..\Include\Foundation\ISingleton.h"
+					RelativePath="..\Source\Foundation\LockedList.cpp"
 					>
 				</File>
 				<File
@@ -206,7 +234,19 @@
 					>
 				</File>
 				<File
+					RelativePath="..\Source\Foundation\Node.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\Include\Foundation\Node.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Util"
+				>
+				<File
+					RelativePath="..\Include\Foundation\CriticalSection.h"
 					>
 				</File>
 				<File
@@ -218,15 +258,31 @@
 					>
 				</File>
 				<File
-					RelativePath="..\Include\Foundation\Singleton.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Include\Foundation\SingletonManager.h"
-					>
-				</File>
-				<File
 					RelativePath="..\Include\Foundation\SmartPtr.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Timer"
+				>
+				<File
+					RelativePath="..\Include\Foundation\Time.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Source\Foundation\TimeManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Foundation\TimeManager.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Source\Foundation\Timer.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Foundation\Timer.h"
 					>
 				</File>
 			</Filter>
@@ -234,74 +290,70 @@
 		<Filter
 			Name="Common"
 			>
-			<Filter
-				Name="Header"
+			<File
+				RelativePath="..\Include\Common\CommonHeader.h"
 				>
-				<File
-					RelativePath="..\Include\Common\CommonHeader.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Include\Common\Definitions.h"
-					>
-				</File>
-			</Filter>
+			</File>
+			<File
+				RelativePath="..\Include\Common\Definitions.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="StlCustomize"
 			>
 			<File
+				RelativePath="..\Include\StlCustomize\ane_list.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Include\StlCustomize\ane_map.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Include\StlCustomize\ane_queue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Include\StlCustomize\ane_stack.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Include\StlCustomize\ane_string.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Include\StlCustomize\ane_vector.h"
+				>
+			</File>
+			<File
 				RelativePath="..\Include\StlCustomize.h"
 				>
 			</File>
-			<Filter
-				Name="Header"
-				>
-				<File
-					RelativePath="..\Include\StlCustomize\ane_list.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Include\StlCustomize\ane_map.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Include\StlCustomize\ane_queue.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Include\StlCustomize\ane_stack.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Include\StlCustomize\ane_string.h"
-					>
-				</File>
-				<File
-					RelativePath="..\Include\StlCustomize\ane_vector.h"
-					>
-				</File>
-			</Filter>
 		</Filter>
 		<Filter
 			Name="Memory"
 			>
-			<Filter
-				Name="Header"
+			<File
+				RelativePath="..\Include\Memory\IMemoryPool.h"
 				>
-				<File
-					RelativePath="..\Include\Memory\Memory.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Source"
+			</File>
+			<File
+				RelativePath="..\Source\Memory\Memory.cpp"
 				>
-				<File
-					RelativePath="..\Source\Memory\Memory.cpp"
-					>
-				</File>
-			</Filter>
+			</File>
+			<File
+				RelativePath="..\Include\Memory\Memory.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Source\Memory\MemoryBlockPool.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Include\Memory\MemoryBlockPool.h"
+				>
+			</File>
 		</Filter>
 		<File
 			RelativePath="..\Include\Ane.h"

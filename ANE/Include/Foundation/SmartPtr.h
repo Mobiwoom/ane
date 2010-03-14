@@ -20,7 +20,7 @@ public:
 private:
 	Type*										m_pRef;
 	LockFreeCounter*							m_pCount;
-	static LockFreeQueue<LockFreeCounter*>	m_CountPool;
+	static LockFreeQueue<LockFreeCounter*>		m_CountPool;
 };
 
 template <typename Type>

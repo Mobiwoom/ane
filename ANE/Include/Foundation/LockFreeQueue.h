@@ -49,7 +49,7 @@ LockFreeQueue<Type>::~LockFreeQueue()
 {
 	this->Clear();
 
-	while(1)
+	for(;;)
 	{
 		Node* pNode = m_NodePool.Pop();
 		if(NULL == pNode)
@@ -118,7 +118,7 @@ Type LockFreeQueue<Type>::Pop()
 template <typename Type>
 void LockFreeQueue<Type>::Clear()
 {
-	while(TRUE)
+	for(;;)
 	{		
 		Node* pHead;
 		Node* pNext;

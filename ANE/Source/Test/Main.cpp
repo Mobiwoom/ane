@@ -1,29 +1,36 @@
+#include <conio.h>
 #include "Ane.h"
 #include "vld.h"
 #include "boost/shared_ptr.hpp"
+#include "Foundation/Timer.h"
 
 class TClass
-	: public Ane::Singleton<TClass>
+	: public Ane::Timer
 {
 public:
 	TClass()
-		:Ane::Singleton<TClass>(Ane::RELEASE_LEVEL_2)
 	{
 
 	}
 	virtual ~TClass(){}
+	void OnTimer(Ane::Time* pTime)
+	{
+
+	}
+	void Test()
+	{
+		this->SetTimer(&m_Time, 1000);
+	}
 public:
 
-	int NumA;
-	int NumB;
+	Ane::Time m_Time;
+
 };
 
 void main()
 {
-	Ane::list<int*> m_list;
+	TClass Temp;
+	Temp.Test();
 
-	int* pA = new int;
-
-	m_list.push_back(pA);
-	
+	_getch();
 }

@@ -6,112 +6,29 @@ namespace Ane
 class LockFreeCounter
 {
 public:
-	LockFreeCounter();
-	LockFreeCounter(long Num);
-	~LockFreeCounter();
+	LockFreeCounter()							{this->Exchange(0);}
+	LockFreeCounter(long Num)					{this->Exchange(Num);}
+	~LockFreeCounter()							{this->Exchange(0);}
 
 public:
-	long										Increment();
-	long										Decrement();
-	long										Exchange(long Num);
-	long										ExchangeAdd(long Num);
-	long										ExchangeSub(long Num);
-	long										GetCount();
+	long										Increment()							{	return InterlockedIncrement(&m_Count);	}
+	long										Decrement()							{	return InterlockedDecrement(&m_Count);	}
+	long										Exchange(long Num)					{	return InterlockedExchange(&m_Count, Num);	}
+	long										ExchangeAdd(long Num)				{	return InterlockedExchangeAdd(&m_Count, Num);	}
+	long										ExchangeSub(long Num)				{	return InterlockedExchangeAdd(&m_Count, -Num);	}
+	long										GetCount()							{	return m_Count;	}
 
 public:
-	long										operator++();
-	long										operator++(int);
-	long										operator--();
-	long										operator--(int);
-	void										operator+=(long Num);
-	void										operator-=(long Num);
-	void										operator=(long Num);
+	long										operator++()						{	return this->Increment();	}
+	long										operator++(int)						{	return this->Increment() - 1;	}
+	long										operator--()						{	return this->Decrement();	}
+	long										operator--(int)						{	return this->Decrement() + 1;	}
+	void										operator+=(long Num)				{	this->ExchangeAdd(Num);	}
+	void										operator-=(long Num)				{	this->ExchangeSub(Num);	}
+	void										operator=(long Num)					{	this->Exchange(Num);	}
 												operator volatile long() const		{return m_Count;}
 
 private:
 	volatile long								m_Count;
 };
-
-LockFreeCounter::LockFreeCounter()
-{
-	this->Exchange(0);
-}
-
-LockFreeCounter::LockFreeCounter(long Num)
-{
-	this->Exchange(Num);
-}
-
-LockFreeCounter::~LockFreeCounter()
-{
-	this->Exchange(0);
-}
-
-inline long LockFreeCounter::Increment()
-{
-	return InterlockedIncrement(&m_Count);
-}
-
-inline long LockFreeCounter::Decrement()
-{
-	return InterlockedDecrement(&m_Count);
-}
-
-inline long LockFreeCounter::Exchange(long Num)
-{
-	return InterlockedExchange(&m_Count, Num);
-}
-
-inline long LockFreeCounter::ExchangeAdd(long Num)
-{
-	return InterlockedExchangeAdd(&m_Count, Num);
-}
-
-inline long LockFreeCounter::ExchangeSub(long Num)
-{
-	return InterlockedExchangeAdd(&m_Count, -Num);
-}
-
-inline long LockFreeCounter::GetCount()
-{
-	return m_Count;
-}
-
-inline long LockFreeCounter::operator ++()
-{
-	return this->Increment();
-}
-
-inline long LockFreeCounter::operator --()
-{
-	return this->Decrement();
-}
-
-inline long LockFreeCounter::operator ++(int)
-{
-	return this->Increment() - 1;
-}
-
-inline long LockFreeCounter::operator --(int)
-{
-	return this->Decrement() + 1;
-}
-
-inline void	LockFreeCounter::operator +=(long Num)
-{
-	this->ExchangeAdd(Num);
-}
-
-inline void	LockFreeCounter::operator -=(long Num)
-{
-	this->ExchangeSub(Num);
-}
-
-inline void LockFreeCounter::operator =(long Num)
-{
-	this->Exchange(Num);
-}
-
-
-
 };//namespace Ane

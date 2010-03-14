@@ -2,11 +2,18 @@
 
 namespace Ane
 {
+Memory::Memory()
+:m_pMemory(NULL), m_MemorySize(0), m_Current(0)
+{
+
+}
+
 Memory::Memory( int MemSize )
 :m_pMemory(NULL), m_MemorySize(MemSize), m_Current(0)
 {
 	m_pMemory = new char[m_MemorySize];
 }
+
 
 Memory::~Memory()
 {

@@ -1,17 +1,20 @@
 #pragma once
+#include "Common/CommonHeader.h"
 #include "Foundation/RefCounter.h"
 
 namespace Ane
 {
 class Memory
-	: public RefCounter
+	: public Ane::RefCounter
 {
 public:
+	Memory();
 	Memory(int MemSize);
 	virtual ~Memory();
 
 protected:
-	void										OnRelease();
+	virtual void								OnRelease();
+
 public:
 	//	Memory 초기화
 	void										IntiMemory();
@@ -30,8 +33,8 @@ private:
 	//	할당한 메모리
 	char*										m_pMemory;
 	//	전체 메모리 크기
-	const int									m_MemorySize;
+	int											m_MemorySize;
 	//	현재 사용된 메모리 주소를 가르킬 변수
-	LockFreeCounter								m_Current;
+	unsigned int								m_Current;
 };
 }//namespace Ane

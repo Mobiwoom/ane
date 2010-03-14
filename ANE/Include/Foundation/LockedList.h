@@ -1,5 +1,6 @@
 #pragma once
 #include "Common/CommonHeader.h"
+#include "CriticalSection.h"
 
 namespace Ane
 {
@@ -25,6 +26,7 @@ private:
 
 private:
 	friend class Node;
+	Ane::CriticalSection						m_Lock;
 	Node*										m_pHead;
 	Node*										m_pTail;
 	unsigned int								m_Count;

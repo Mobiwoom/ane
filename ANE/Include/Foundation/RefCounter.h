@@ -6,58 +6,19 @@ namespace Ane
 class RefCounter
 {
 public:
-	RefCounter();
-	virtual ~RefCounter();
+	RefCounter():m_RefCounter(0)				{	}
+	virtual ~RefCounter()						{	}
 
 public:
-	int 										GetRef();
-	void										InitRef();
-	void										AddRef();
-	void										Release();
+	int 										GetRef()					{	return this->m_RefCounter;	}
+	void										InitRef()					{	this->m_RefCounter = 0;}
+	void										AddRef()					{	++this->m_RefCounter;}
+	void										Release()					{	--this->m_RefCounter;	if(this->m_RefCounter == 0)	this->OnRelease();	}
 
 protected:
-	virtual void								OnRelease();
+	virtual void								OnRelease()					{	delete this;	}
 
 private:
-	LockFreeCounter								m_RefCounter;
+	Ane::LockFreeCounter						m_RefCounter;
 };
-
-RefCounter::RefCounter()
-:m_RefCounter(0)
-{
-
-}
-
-RefCounter::~RefCounter()
-{
-
-}
-
-inline int RefCounter::GetRef()
-{
-	return this->m_RefCounter;
-}
-
-inline void RefCounter::InitRef()
-{
-	this->m_RefCounter = 0;
-}
-
-inline void RefCounter::AddRef()
-{
-	++this->m_RefCounter;
-}
-
-inline void RefCounter::Release()
-{
-	--this->m_RefCounter;
-	if(this->m_RefCounter == 0)
-		this->OnRelease();
-}
-
-inline void RefCounter::OnRelease()
-{
-	delete this;
-}
-
 }//namespace Ane

@@ -6,41 +6,15 @@ namespace Ane
 class CriticalSection
 {
 public:
-	CriticalSection();
-	~CriticalSection();
+	CriticalSection()							{	this->Initialize();	}
+	~CriticalSection()							{	}
 
 public:
-	void										Initialize();
-	void										Enter();
-	void										Leave();
+	void										Initialize()			{	InitializeCriticalSection(&m_CriticalSection);	}
+	void										Enter()					{	EnterCriticalSection(&m_CriticalSection);	}
+	void										Leave()					{	LeaveCriticalSection(&m_CriticalSection);	}
 
 private:
 	CRITICAL_SECTION							m_CriticalSection;
 };
-
-CriticalSection::CriticalSection()
-{
-	this->Initialize();
-}
-
-CriticalSection::~CriticalSection()
-{
-
-}
-
-inline void CriticalSection::Initialize()
-{
-	InitializeCriticalSection(&m_CriticalSection);
-}
-
-inline void CriticalSection::Enter()
-{
-	EnterCriticalSection(&m_CriticalSection);
-}
-
-inline void CriticalSection::Leave()
-{
-	LeaveCriticalSection(&m_CriticalSection);
-}
-
 }//namespace Ane

@@ -47,6 +47,7 @@ Node* LockedList::PopFront()
 
 void LockedList::PushNext( Node* pPrev, Node* pNode )
 {
+	m_Lock.Enter();
 	Node* pNext = pPrev->m_pNext;
 
 	pPrev->m_pNext = pNode;
@@ -58,12 +59,14 @@ void LockedList::PushNext( Node* pPrev, Node* pNode )
 	pNode->m_CurrentList = this;
 
 	++m_Count;
+	m_Lock.Leave();
 }
 
 void LockedList::PopAt( Node* pNode )
 {
 	if(this->IsEmpty())
 		return;
+	m_Lock.Enter();
 
 	Node* pPrev = pNode->m_pPrev;
 	Node* pNext = pNode->m_pNext;
@@ -74,6 +77,7 @@ void LockedList::PopAt( Node* pNode )
 	pNode->ReSet();
 
 	--m_Count;
+	m_Lock.Leave();
 }
 
 unsigned int LockedList::Size()
