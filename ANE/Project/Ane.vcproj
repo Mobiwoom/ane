@@ -166,11 +166,23 @@
 					>
 				</File>
 				<File
+					RelativePath="..\Include\Ane\Ane\Executor.h"
+					>
+				</File>
+				<File
 					RelativePath="..\Source\Ane\Ane\Iocp.cpp"
 					>
 				</File>
 				<File
 					RelativePath="..\Include\Ane\Ane\Iocp.h"
+					>
+				</File>
+				<File
+					RelativePath="..\Source\Ane\Ane\Thread.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Include\Ane\Ane\Thread.h"
 					>
 				</File>
 			</Filter>
