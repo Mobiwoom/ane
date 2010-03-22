@@ -3,12 +3,12 @@
 
 namespace Ane
 {
-class Executor
+class IExecutor
 	: public WSAOVERLAPPED
 {
 public:
-	Executor(){hEvent = NULL;}
-	virtual ~Executor(){}
+	IExecutor(){hEvent = NULL;}
+	virtual ~IExecutor(){}
 
 public:
 	virtual BOOL								ProcessExecute(unsigned int Return, unsigned int Transferred)	= 0;

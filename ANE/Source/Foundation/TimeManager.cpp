@@ -9,7 +9,7 @@ TimeManager::TimeManager()
 	BOOL isStart = Ane::Iocp::Instance()->IsStart();
 	if(FALSE == isStart)
 	{
-		Ane::Iocp::Instance()->SetNumberOfThread(1);
+		//Ane::Iocp::Instance()->SetNumberOfThread(1);
 		Ane::Iocp::Instance()->Start();
 	}
 	this->Start();
@@ -50,7 +50,8 @@ void TimeManager::Complete()
 void TimeManager::AttachTimer( Ane::Time* pTime, Ane::Timer* pTimer )
 {
 	m_Lock.Enter();
-
+	UNREFERENCED_PARAMETER(pTime);
+	UNREFERENCED_PARAMETER(pTimer);
 	m_Lock.Leave();
 }
 
@@ -58,13 +59,14 @@ void TimeManager::DetachTimer( Ane::Time* pTime )
 {
 	m_Lock.Enter();
 	// TODO : OnTimer에서 KillTimer부르면 문제 있을듯.ㅋ
-
+	UNREFERENCED_PARAMETER(pTime);
 	m_Lock.Leave();
 }
 
 void TimeManager::AttachAlarm( Ane::Time* pTime, Ane::Timer* pTimer )
 {
-
+	UNREFERENCED_PARAMETER(pTime);
+	UNREFERENCED_PARAMETER(pTimer);
 }
 
 }//namespace Ane

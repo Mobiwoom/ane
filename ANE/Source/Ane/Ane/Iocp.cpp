@@ -1,15 +1,15 @@
 #include "Ane/Ane/Iocp.h"
-//Test ¿ë
-#include "Foundation/TimeManager.h"
+#include "Ane/Ane/Thread.h"
+
 
 
 namespace Ane
 {
 Iocp::Iocp() 
 :Singleton<Iocp>(RELEASE_LEVEL_2),
-m_hIocp(0), m_NumberOfThread(BASIC_NUMBER_OF_THREAD), m_isStart(FALSE)
+m_hIocp(0), m_isStart(FALSE), m_UniqueThreadID(0)
 {
-
+	m_hIocp = CreateIoCompletionPort( INVALID_HANDLE_VALUE, NULL, NULL, MAX_NUMBER_OF_THREAD );
 }
 
 Iocp::~Iocp()
@@ -17,35 +17,29 @@ Iocp::~Iocp()
 
 }
 
-void Iocp::SetNumberOfThread( unsigned int NumberOfThread)
+BOOL Iocp::CreateThread( unsigned int NumberOfThread )
 {
-	if(FALSE == m_isStart)
-	{
-		if(BASIC_NUMBER_OF_THREAD == NumberOfThread)
-		{
-			SYSTEM_INFO SysTemInfo;
-			GetSystemInfo(&SysTemInfo);
-			m_NumberOfThread = SysTemInfo.dwNumberOfProcessors * 2 + 1;
-		
-		}
-		else
-		{
-			m_NumberOfThread = NumberOfThread;
-		}
-	}
+	ASSERT(m_UniqueThreadID + NumberOfThread > m_mapThread.size());
+	Ane::Thread* pThread = new Ane::Thread(++m_UniqueThreadID, m_hIocp);
+	m_mapThread.insert(Ane::map<unsigned int, Thread*>::value_type(m_UniqueThreadID, pThread));
+	return TRUE;
 }
+
+BOOL Iocp::DestroyThread( UniqueID ID )
+{
+	Ane::map<unsigned int, Thread*>::iterator it = m_mapThread.find(ID);
+	if(it == m_mapThread.end())
+		return FALSE;
+
+	m_mapThread.erase(it);
+	return TRUE;
+}
+
 
 void Iocp::Start()
 {
 	if(FALSE == m_isStart)
 	{
-		m_hIocp = CreateIoCompletionPort( INVALID_HANDLE_VALUE, NULL, NULL, m_NumberOfThread );
-	
-		for(DWORD i=0; i<m_NumberOfThread; ++i)
-		{
-
-		}
-
 		m_isStart = TRUE;
 	}
 }
