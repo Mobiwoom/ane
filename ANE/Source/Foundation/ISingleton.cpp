@@ -3,7 +3,8 @@
 
 namespace Ane
 {
-ISingleton::ISingleton( ReleaseLevel Level /*= RELEASE_LEVEL_1*/ ) :m_Level(Level)
+ISingleton::ISingleton(ReleaseLevel Level) 
+:m_Level(Level)
 {
 	this->Attach();
 }
@@ -15,11 +16,9 @@ ISingleton::~ISingleton()
 
 void ISingleton::Attach()
 {
+	// static 변수로 프로세서가 종료 될때 소멸됨
 	static SingletonManager	m_SingletonManager;
+	// 
 	m_SingletonManager.Attach(this);
 }
-
-
-
-
 }//namespace Ane

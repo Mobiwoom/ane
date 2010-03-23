@@ -14,6 +14,7 @@ public:
 	virtual ~Singleton();
 
 public:
+	// 按眉 掘绢坷扁
 	static Type*								Instance();
 	
 private:
@@ -39,10 +40,12 @@ Singleton<Type>::~Singleton()
 template <class Type>
 Type* Singleton<Type>::Instance()
 {
-	if(m_pInstance == NULL)
+	// 积己等 按眉啊 绝阑版快 按眉 积己
+	if(m_pInstance == NULL)	
 	{
 		m_pInstance = new Type;
 	}
+	// 按眉 府畔
 	return m_pInstance;
 }
 }//namespace Ane

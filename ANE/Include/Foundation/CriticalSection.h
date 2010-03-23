@@ -10,8 +10,11 @@ public:
 	~CriticalSection()							{	}
 
 public:
+	// CriticalSection 초기화
 	void										Initialize()			{	InitializeCriticalSection(&m_CriticalSection);	}
+	// CriticalSection 진입
 	void										Enter()					{	EnterCriticalSection(&m_CriticalSection);	}
+	// CriticalSection 해제
 	void										Leave()					{	LeaveCriticalSection(&m_CriticalSection);	}
 
 private:

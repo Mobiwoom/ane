@@ -2,7 +2,7 @@
 #include "Common/CommonHeader.h"
 #include "Foundation/LockFreeCounter.h"
 
-// 이걸 만들어야 되나 말아야 되나...;ㅁ;
+// TODO : 이걸 만들어야 되나 말아야 되나...;ㅁ;
 
 namespace Ane
 {

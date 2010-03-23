@@ -18,12 +18,14 @@ Memory::Memory( int MemSize )
 Memory::~Memory()
 {
 	m_Current = 0;
+	// 객체가 소멸될때 할당한 메모리도 소멸
 	SAFE_DELETE_ARRAY(m_pMemory);
 }
 
 void Memory::IntiMemory()
 {
 	m_Current = 0;
+	// 메모리 초기화 
 	ZeroMemory(m_pMemory, m_MemorySize);
 }
 

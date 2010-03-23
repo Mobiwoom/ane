@@ -1,7 +1,7 @@
 #pragma once
 #include "Common/CommonHeader.h"
 #include "Foundation/Singleton.h"
-#include "StlCustomize/ane_map.h"
+#include "StlCustomize/ane_vector.h"
 #include "Thread.h"
 
 namespace Ane
@@ -16,23 +16,29 @@ public:
 	virtual ~Iocp();
 
 public:
-	BOOL										IsStart()										{return this->m_isStart;}
+	// Thread 갯수 얻어오기
+	inline unsigned int							GetNumberOfThread()								{	return m_NumberOfThread;	}
 
 public:
-	void										Start();
+	// 생성된 Socket을 Iocp에 등록
 	void										CreateIocp(const HANDLE Socket);
+	// Iocp에 작업 등록
 	BOOL										PostIocp(const LPOVERLAPPED pOverlapped);
-
+	// 설정한 갯수 만큼 Thread를 만듬 
+	// 주의 : MAX_NUMBER_OF_THREAD 수 보다 생성되는 Thread가 많으면 안됨
 	BOOL										CreateThread(unsigned int NumberOfThread);
 
 private:
 	friend class Thread;
-	BOOL										DestroyThread(UniqueID ID);
+	// Thread를 Pool에서 제거
+	BOOL										DestroyThread( unsigned int Index);
 		
 private:
-	Ane::map<unsigned int, Thread*>				m_mapThread;
-	UniqueID									m_UniqueThreadID;
+	// Thread 갯수
+	unsigned int								m_NumberOfThread;
+	// Iocp Handle
 	HANDLE										m_hIocp;
-	BOOL										m_isStart;
+	// Thread를 관리할 container  
+	Ane::vector<Thread*>						m_vecThread;
 };
 }//namespace Ane

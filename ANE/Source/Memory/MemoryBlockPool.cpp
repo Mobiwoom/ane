@@ -84,7 +84,8 @@ void* MemoryBlockPool::Alloc( unsigned int Size )
 	}
 	else
 	{
-		//예외 처리
+		// TODO : 예외 처리
+		ASSERT(FALSE);
 	}
 	
 	return pMemory;
@@ -114,8 +115,11 @@ void MemoryBlockPool::Free( void* pMemory )
 		m_queMemoryBlock[8].Push(pMem);
 	else if(nSize == 65536)
 		m_queMemoryBlock[9].Push(pMem);
+	else
+		// TODO : 예외 처리
 }
 
+// TODO : 할당한 메모리들이 다 돌아올때 까지 기다렸다가 다 돌아왔을때 종료 처리 되게 설계?
 void MemoryBlockPool::Destroy()
 {
 	for(int i=0; i<NUMBER_OF_BLOCK_SIZE; ++i)

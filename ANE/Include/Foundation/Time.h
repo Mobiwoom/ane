@@ -5,6 +5,8 @@ namespace Ane
 {
 class Time
 {
+	friend class TimeManager;
+	friend class Timer;
 public:
 	Time():m_Interval(0), m_LastTime(0), m_UniqueID(0)							{	}
 	virtual ~Time()																{	}
@@ -13,10 +15,11 @@ public:
 	BOOL										operator == (Time& pTime)		{	return m_UniqueID == pTime.m_UniqueID;	}
 
 private:
-	friend class TimeManager;
-	friend class Timer;
+	// 지연시간
 	unsigned int								m_Interval;
+	// 마지막으로 호출된 시간
 	unsigned int								m_LastTime;
-	unsigned int								m_UniqueID;
+	// 유니크 아이디
+	UniqueID									m_UniqueID;
 };
 }//namespace Ane

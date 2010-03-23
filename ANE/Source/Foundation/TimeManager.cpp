@@ -6,12 +6,7 @@ namespace Ane
 TimeManager::TimeManager() 
 :Ane::Singleton<TimeManager>(RELEASE_LEVEL_2),m_isStart(FALSE)
 {
-	BOOL isStart = Ane::Iocp::Instance()->IsStart();
-	if(FALSE == isStart)
-	{
-		//Ane::Iocp::Instance()->SetNumberOfThread(1);
-		Ane::Iocp::Instance()->Start();
-	}
+	Ane::Iocp::Instance()->CreateThread(1);
 	this->Start();
 }
 
